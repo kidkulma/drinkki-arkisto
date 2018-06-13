@@ -44,7 +44,7 @@ public class AineDao implements Dao<Aine, Integer> {
         } catch (Exception ex) {
             return null;
         }
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM DrinkkiAine WHERE id = ?");
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Aine WHERE id = ?");
         stmt.setInt(1, key);
 
         ResultSet rs = stmt.executeQuery();
