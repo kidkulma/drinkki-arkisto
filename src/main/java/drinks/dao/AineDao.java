@@ -38,7 +38,29 @@ public class AineDao implements Dao<Aine, Integer> {
     @Override
     public Aine findOne(Integer key) throws SQLException {
         //Palautetaan kaikista aineista se, jonka id on sama kuin haluttu
-        return findAll().stream().filter(u -> u.getId().equals(key)).findFirst().get();
+        Connection conn;
+        try {
+            conn = database.getConnection();
+        } catch (Exception ex) {
+            return null;
+        }
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM DrinkkiAine WHERE id = ?");
+        stmt.setInt(1, key);
+
+        ResultSet rs = stmt.executeQuery();
+        boolean hasOne = rs.next();
+        if (!hasOne) {
+            return null;
+        }
+
+        Aine a = new Aine(rs.getInt("id"), rs.getString("nimi"));
+
+        stmt.close();
+        rs.close();
+
+        conn.close();
+
+        return a;
     }
 
     @Override
