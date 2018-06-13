@@ -34,7 +34,7 @@ public class DrinkkiAineDao implements Dao<DrinkkiAine, Integer> {
                 + "aine_id integer,\n"
                 + "FOREIGN KEY (drinkki_id) REFERENCES Drinkki(id),\n"
                 + "FOREIGN KEY (aine_id) REFERENCES Aine(id));");
-        stmt.executeQuery();
+        stmt.execute();
         
         stmt.close();
 

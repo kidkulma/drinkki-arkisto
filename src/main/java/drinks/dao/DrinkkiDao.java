@@ -30,7 +30,7 @@ public class DrinkkiDao implements Dao<Drinkki, Integer> {
         PreparedStatement stmt = conn.prepareStatement("CREATE TABLE IF NOT EXISTS Drinkki (\n"
                 + "id SERIAL PRIMARY KEY,\n"
                 + "nimi varchar(50));");
-        stmt.executeQuery();
+        stmt.execute();
         
         stmt.close();
 
