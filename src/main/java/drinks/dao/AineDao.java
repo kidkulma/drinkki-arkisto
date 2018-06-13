@@ -28,7 +28,7 @@ public class AineDao implements Dao<Aine, Integer> {
         PreparedStatement stmt = conn.prepareStatement("CREATE TABLE IF NOT EXISTS Aine (\n"
                 + "id SERIAL PRIMARY KEY,\n"
                 + "nimi varchar(50));");
-        stmt.executeQuery();
+        stmt.execute();
         
         stmt.close();
 
