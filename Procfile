@@ -1,1 +1,1 @@
-web:    java -cp target/classes:target/dependency/* drinks.drinkkilista.Main
+web:    java -cp target/classes:target/dependency/* drinks.drinkkilista.Drinkkilista
