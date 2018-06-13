@@ -42,7 +42,7 @@ public class AineDao implements Dao<Aine, Integer> {
         try {
             conn = database.getConnection();
         } catch (Exception ex) {
-            return null;
+            throw new SQLException("EI KIVA");
         }
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Aine WHERE id = ?");
         stmt.setInt(1, key);
