@@ -1,0 +1,44 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title th:text="${drinkki.nimi}">Drinkki</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <h1 th:text="${drinkki.nimi}">Drinkki</h1>
+        <ul>
+            <li th:each="drinkkiaine : ${drinkkiainedata}">
+                <span th:text="${drinkkiaine.nimi}">Nimi</span>, 
+                <span th:text="${drinkkiaine.maara}">Määrä</span>, 
+                <span th:text="${drinkkiaine.ohje}">Ohje</span>
+                (<a th:href="@{~/drinkit/{drin}/{aine}/delete(drin=${drinkki.id}, aine=${drinkkiaine.id})}">Poista</a>)
+            </li>
+        </ul>
+        
+        <h2>Lisää ainesosa drinkkiin</h2>
+        <form th:action="@{~/drinkit/{id}(id=${drinkki.id})}" method="post">
+            <p>Valitse ainesosa</p>
+            <select name="aine">
+                <option th:each="aine: ${aineet}" th:value="${aine.id}" th:text="${aine.nimi}">
+                    aine
+                </option>
+            </select>
+            <p>Minkä ainesosan jälkeen uusi ainesosa tulisi laittaa drinkkiin?</p>
+            <select name="jarj">
+                <option th:value="1">Ensimmäisenä</option>
+                <option th:each="drinkkiaine : ${drinkkiainedata}" th:value="${drinkkiaine.jarjestys}+1" th:text="${drinkkiaine.nimi}">
+                    jarj
+                </option>
+            </select>
+            <p>Kuinka paljon ainesosaa tulee drinkkiin? (esim. 1 dl tai hyppysellinen)</p>
+            <p><input type="text" value="" name="maara"/></p>
+            <p>Lisää valinnainen ohje ainesosaa lisätessä</p>
+            <p><input type="text" value="" name="ohje"/></p>
+            <p><input type="submit" value="Lisää aines!"/></p>
+        </form>
+
+        <p><a th:href="@{~/}">Takaisin drinkkilistaan</a></p>
+    </body>
+</html>

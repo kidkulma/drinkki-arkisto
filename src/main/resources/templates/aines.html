@@ -1,0 +1,23 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title th:text="${aine.nimi}">Aines</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <h1 th:text="${aine.nimi}">Aines</h1>
+        Kyseistä ainesta käytetään seuraavissa drinkeissä:
+        <ul>
+            <li th:each="drinkkiaine : ${drinkkiainedata}">
+                <a th:href="@{~/drinkit/{drin}(drin=${drinkkiaine.id})}"><span th:text="${drinkkiaine.nimi}">Nimi</span></a>
+            </li>
+        </ul>
+
+        <ul>
+            <li><a th:href="@{~/ainekset}">Takaisin aineslistaan</a></li>
+            <li><a th:href="@{~/}">Takaisin drinkkilistaan</a></li>
+        </ul>
+    </body>
+</html>

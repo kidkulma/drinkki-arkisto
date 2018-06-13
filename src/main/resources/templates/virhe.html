@@ -1,0 +1,17 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Virhe</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <h1 th:text="${virhe}">Virhe</h1>
+        
+        <ul>
+            <li><a th:href="@{~/ainekset}">Takaisin aineslistaan</a></li>
+            <li><a th:href="@{~/}">Takaisin drinkkilistaan</a></li>
+        </ul>
+    </body>
+</html>

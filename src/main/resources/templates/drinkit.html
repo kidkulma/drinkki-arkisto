@@ -1,0 +1,27 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Drinkkilista</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <h1>Olemassa olevat drinkit</h1>
+        Painamalla drinkin nimeä pääset katselemaan ja muokkaamaan sen reseptiä.
+        <ul>
+            <li th:each="drinkki : ${drinkit}">
+                <a th:href="@{~/drinkit/{id}(id=${drinkki.id})}"><span th:text="${drinkki.nimi}">Drinkin nimi</span></a>
+                (<a th:href="@{~/drinkit/{id}/delete(id=${drinkki.id})}">Poista</a>)
+            </li>
+        </ul>
+        <h2>Lisää uusi drinkki</h2>
+        
+        Drinkin nimi:
+        <form method="POST" action="/">
+            <input type="text" name="nimi"/><br/>
+            <input type="submit" value="Lisää!"/>
+        </form>
+        <p><a th:href="@{~/ainekset}">Tarkastele ja lisää uusia aineksia</a></p>
+    </body>
+</html>
