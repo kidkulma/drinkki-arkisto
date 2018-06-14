@@ -120,7 +120,7 @@ public class Drinkkilista {
             List<DrinkkiAineData> drinkkiainedatat = new ArrayList<>();
 
             for (DrinkkiAine a : drinkkiAineet.findAllByAineId(Integer.parseInt(req.params("id")))) {
-                drinkkiainedatat.add(new DrinkkiAineData(a.getId(), drinkkiAineet.getDrinkkiNimi(a.getDrinkkiId()), 1, "", ""));
+                drinkkiainedatat.add(new DrinkkiAineData(a.getDrinkkiId(), drinkkiAineet.getDrinkkiNimi(a.getDrinkkiId()), 1, "", ""));
             }
 
             map.put("drinkkiainedata", drinkkiainedatat);
