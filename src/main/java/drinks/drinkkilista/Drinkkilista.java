@@ -69,7 +69,7 @@ public class Drinkkilista {
         }, new ThymeleafTemplateEngine());
 
         Spark.post("/drinkit/:id", (req, res) -> {
-
+            System.out.println("Lisättävän aineen id: " + req.queryParams("aine"));
             try {
                 drinkkiAineet.addAndUpdate(new DrinkkiAine(-1, Integer.parseInt(req.params("id")), Integer.parseInt(req.queryParams("aine")), Integer.parseInt(req.queryParams("jarj")), req.queryParams("maara"), req.queryParams("ohje")));
             } catch (SQLException e) {

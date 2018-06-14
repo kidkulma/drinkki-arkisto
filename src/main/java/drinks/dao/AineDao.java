@@ -49,7 +49,7 @@ public class AineDao implements Dao<Aine, Integer> {
 
         ResultSet rs = stmt.executeQuery();
         boolean hasOne = rs.next();
-        System.out.println("Aineen id" + key);
+        System.out.println("Haettavan aineen id: " + key);
         if (!hasOne) {
             throw new SQLException("EI KIVA");
         }
