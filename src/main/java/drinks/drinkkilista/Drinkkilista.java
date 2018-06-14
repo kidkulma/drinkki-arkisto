@@ -58,7 +58,6 @@ public class Drinkkilista {
             List<DrinkkiAineData> drinkkiainedatat = new ArrayList<>();
 
             for (DrinkkiAine a : drinkkiAineet.findAllByDrinkkiId(Integer.parseInt(req.params("id")))) {
-                System.out.println("Haettavan aineen id1: " + a.getAineId());
                 drinkkiainedatat.add(new DrinkkiAineData(a.getId(), drinkkiAineet.getAineNimi(a.getAineId()), a.getJarjestys(), a.getMaara(), a.getOhje()));
             }
 
@@ -70,7 +69,6 @@ public class Drinkkilista {
         }, new ThymeleafTemplateEngine());
 
         Spark.post("/drinkit/:id", (req, res) -> {
-            System.out.println("Lisättävän aineen id: " + req.queryParams("aine"));
             try {
                 drinkkiAineet.addAndUpdate(new DrinkkiAine(-1, Integer.parseInt(req.params("id")), Integer.parseInt(req.queryParams("aine")), Integer.parseInt(req.queryParams("jarj")), req.queryParams("maara"), req.queryParams("ohje")));
             } catch (SQLException e) {

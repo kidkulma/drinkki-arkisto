@@ -158,6 +158,7 @@ public class DrinkkiAineDao implements Dao<DrinkkiAine, Integer> {
     }
 
     public void deleteAndUpdate(DrinkkiAine object) throws SQLException {
+        System.out.println("drinkin id: " + object.getDrinkkiId());
         List<DrinkkiAine> aineet = this.findAllByDrinkkiId(object.getDrinkkiId());
         for (int i = 0; i < aineet.size(); i++) {
             if (aineet.get(i).getJarjestys() > object.getJarjestys()) {
