@@ -79,7 +79,7 @@ public class DrinkkiAineDao implements Dao<DrinkkiAine, Integer> {
                 ResultSet result = conn.prepareStatement("SELECT id, drinkki_id, aine_id, jarjestys, maara, ohje FROM DrinkkiAine").executeQuery()) {
 
             while (result.next()) {
-                aineet.add(new DrinkkiAine(result.getInt("id"), result.getInt("aine_id"), result.getInt("drinkki_id"), result.getInt("jarjestys"), result.getString("maara"), result.getString("ohje")));
+                aineet.add(new DrinkkiAine(result.getInt("id"), result.getInt("drinkki_id"), result.getInt("aine_id"), result.getInt("jarjestys"), result.getString("maara"), result.getString("ohje")));
             }
         } catch (Exception ex) {
             return null;
@@ -180,7 +180,7 @@ public class DrinkkiAineDao implements Dao<DrinkkiAine, Integer> {
             ResultSet result = stmt.executeQuery();
 
             while (result.next()) {
-                aineet.add(new DrinkkiAine(result.getInt("id"), result.getInt("aine_id"), result.getInt("drinkki_id"), result.getInt("jarjestys"), result.getString("maara"), result.getString("ohje")));
+                aineet.add(new DrinkkiAine(result.getInt("id"), result.getInt("drinkki_id"), result.getInt("aine_id"), result.getInt("jarjestys"), result.getString("maara"), result.getString("ohje")));
             }
         } catch (Exception ex) {
             return null;
@@ -202,7 +202,7 @@ public class DrinkkiAineDao implements Dao<DrinkkiAine, Integer> {
             ResultSet result = stmt.executeQuery();
 
             while (result.next()) {
-                aineet.add(new DrinkkiAine(result.getInt("id"), result.getInt("aine_id"), result.getInt("drinkki_id"), result.getInt("jarjestys"), result.getString("maara"), result.getString("ohje")));
+                aineet.add(new DrinkkiAine(result.getInt("id"), result.getInt("drinkki_id"), result.getInt("aine_id"), result.getInt("jarjestys"), result.getString("maara"), result.getString("ohje")));
             }
         } catch (Exception ex) {
             return null;
