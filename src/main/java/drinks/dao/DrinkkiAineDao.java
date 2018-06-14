@@ -32,8 +32,8 @@ public class DrinkkiAineDao implements Dao<DrinkkiAine, Integer> {
                 + "ohje varchar(100),\n"
                 + "drinkki_id integer,\n"
                 + "aine_id integer,\n"
-                + "FOREIGN KEY (drinkki_id) REFERENCES Drinkki(id),\n"
-                + "FOREIGN KEY (aine_id) REFERENCES Aine(id));");
+                + "FOREIGN KEY (drinkki_id) REFERENCES Drinkki(id) ON DELETE CASCADE,\n"
+                + "FOREIGN KEY (aine_id) REFERENCES Aine(id) ON DELETE CASCADE);");
         stmt.execute();
         
         stmt.close();
