@@ -58,6 +58,7 @@ public class Drinkkilista {
             List<DrinkkiAineData> drinkkiainedatat = new ArrayList<>();
 
             for (DrinkkiAine a : drinkkiAineet.findAllByDrinkkiId(Integer.parseInt(req.params("id")))) {
+                System.out.println("Haettavan aineen id1: " + a.getAineId());
                 drinkkiainedatat.add(new DrinkkiAineData(a.getId(), drinkkiAineet.getAineNimi(a.getAineId()), a.getJarjestys(), a.getMaara(), a.getOhje()));
             }
 
