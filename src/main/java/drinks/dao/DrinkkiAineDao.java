@@ -22,7 +22,7 @@ public class DrinkkiAineDao implements Dao<DrinkkiAine, Integer> {
         Connection conn;
         try {
             conn = database.getConnection();
-        } catch (Exception ex) {
+        } catch (Exception e) {
             return;
         }
         PreparedStatement stmt = conn.prepareStatement("CREATE TABLE IF NOT EXISTS DrinkkiAine (\n"
